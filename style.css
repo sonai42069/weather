@@ -146,6 +146,62 @@ h1,h3 {
 
 
 
+
+
+
+#forecastContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.day-forecast {
+    flex: 1;
+    margin: 10px;
+/*     padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9; */
+    
+    max-width: 5em;
+}
+
+.day-forecast h3 {
+    margin: 0;
+    font-size: .8em;
+    height: 2em;
+    
+}
+
+.day-forecast p {
+    margin: 5px 0;
+    
+    height: 4.5em;
+    
+}
+.day-forecast span {
+    
+    
+    font-size: .9em;
+    height: 2.5em;
+    max-height: 10px;
+    
+}
+
+.forecast-icon {
+    width: 4em; /* Adjust the size as needed */
+    height: 4em;
+    margin-bottom: 10px; /* Add some spacing below the icon */
+}
+
+
+
+
+
+
+
+
+
+
 /* Responsive Design */
 
 @media screen and (max-width: 800px){
@@ -154,13 +210,52 @@ h1,h3 {
         width: 95%;
         top: initial;
     }
+    
     .panel{
         position: relative;
         width: 100%;
         top: initial;
     }
+    #forecastContainer {
+        display: flex;
+        flex-wrap: wrap;
+         /* Adjusts for the total margin offset */
+    }
+    .day-forecast {
+        flex: 1;
+        min-width: calc(100% / 7 - 2px); /* Adjusts for the 1px gap */
+        margin: 0.5px; /* Creates the 1px gap */
+
+    }
+    .day-forecast h3 {
+       padding-right: 5px; 
+        margin: 0;
+        font-size: .6em;
+        height: 2em;
+        
+    }
+    .day-forecast span {
+
+        border: 1px solid #ccc;
+        font-size: .6em;
+
+        
+    }
+
+
     
+
+
+.forecast-icon {
+    width: 2em; /* Adjust the size as needed */
+    height: 2em;
+    margin-bottom: 10px; /* Add some spacing below the icon */
+    align-items: center;
 }
+}    
+
+
+
 @media screen and (max-width: 500px){
     html{
         font-size: 12px;
