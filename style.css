@@ -13,7 +13,7 @@ h1,h3 {
 .weather-app{
     min-height: 100vh;
    /*background-image: url(images/day/cloudy.jpg);*/
-
+   width: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -182,8 +182,6 @@ h1,h3 {
     
     
     font-size: .9em;
-    height: 2.5em;
-    max-height: 10px;
     
 }
 
@@ -236,8 +234,9 @@ h1,h3 {
     }
     .day-forecast span {
 
-        border: 1px solid #ccc;
-        font-size: .6em;
+        
+        font-size: .5em;
+        width: auto;
 
         
     }
