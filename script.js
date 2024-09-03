@@ -172,7 +172,7 @@ function fetchWeatherData(cityInput, lat, long) {
                 dayDiv.classList.add('day-forecast');
 
                 dayDiv.innerHTML = `
-                    <h3>${weekday}'  '</h3>
+                    <h3>${weekday}</h3>
                     <img src="${icon}" alt="${condition}" class="forecast-icon" />
                     <span>${maxtemp}' / '${mintemp}</span>
                 `;

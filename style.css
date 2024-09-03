@@ -1,90 +1,108 @@
-body{
+body {
     background-color: #111;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
+
 * {
     box-sizing: border-box;
 }
-h1,h3 {
+
+h1, h3 {
     font-weight: 400;
 }
-.weather-app{
+
+.weather-app {
     min-height: 100vh;
-   /*background-image: url(images/day/cloudy.jpg);*/
-   width: 100%;
+    width: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
     color: #fff;
-    
 }
-.weather-app::before{
+
+.weather-app::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0, 0, 0, 0.3);
     z-index: 0;
 }
-.container{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+
+.main-container {
+    display: flex;
+    flex-direction: column;
     height: 100%;
+}
+
+.container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: column;
     padding: 2em 3em 4em 3em;
+    z-index: 1;
 }
-.container >div{
+
+.container > div {
     display: flex;
     justify-content: center;
 }
+.container > h3 {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: 400;
+    margin-bottom: 10em;
+}
+
+
 .city-time,
 .temp,
-.weather{
+.weather {
     margin: 0 1em;
 }
-.city-time h1{
+
+.city-time h1 {
     margin: 0;
     margin-bottom: 0.2em;
     font-size: 2em;
-
 }
-.temp
-{
+
+.temp {
     font-size: 5em;
     margin: 0;
 }
-.weather img{
+
+.weather img {
     display: block;
     margin: 0.5em 0;
 }
-.panel{
+
+.panel {
     position: absolute;
     width: 40%;
     height: 100%;
     top: 0;
     right: 0;
-    background: rgba(110,110,110,0.25);
-    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.3);
+    background: rgba(110, 110, 110, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.18);
-    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    z-index: 2;
     padding: 3em 2em;
     overflow-y: scroll;
 }
-.panel form{
+
+.panel form {
     margin-bottom: 3em;
 }
+
 .submit {
     position: absolute;
     top: 0;
@@ -99,11 +117,12 @@ h1,h3 {
     font-size: 1.2em;
     transition: 0.4s;
 }
-.submit :hover {
-    /* background: #fff; */
+
+.submit:hover {
     color: #000;
 }
-.search{
+
+.search {
     background: none;
     border: none;
     border-bottom: 1px #ccc solid;
@@ -112,157 +131,137 @@ h1,h3 {
     color: #fff;
     font-size: 1.1em;
 }
-.search:focus
-{
+
+.search:focus {
     outline: none;
 }
-.search::placeholder{
+
+.search::placeholder {
     color: #ccc;
 }
-.panel ul{
+
+.panel ul {
     padding: 0 0 1em 0;
     margin: 2em 0;
 }
-.panel ul li{
+
+.panel ul li {
     color: #ccc;
     margin: 2.5em 0;
 }
+
 .panel ul h4 {
     margin: 3rem 0;
-
 }
-.city{
+
+.city {
     display: block;
     cursor: pointer;
 }
-.city:hover{
+
+.city:hover {
     color: #fff;
 }
-.details li{
+
+.details li {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-
-
-
-
-
 #forecastContainer {
     display: flex;
     flex-wrap: wrap;
+    margin: 20px 0;
+    padding: 0 3em;
+    z-index: 1;
 }
 
 .day-forecast {
     flex: 1;
     margin: 10px;
-/*     padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9; */
-    
     max-width: 5em;
 }
 
 .day-forecast h3 {
     margin: 0;
     font-size: .8em;
+    padding-left: 2px;
+    font-weight: 600;
     height: 2em;
-    
 }
 
-.day-forecast p {
-    margin: 5px 0;
-    
-    height: 4.5em;
-    
-}
+
 .day-forecast span {
-    
-    
     font-size: .9em;
-    
+    font-weight: 600;
+    padding-left: 2px;
 }
 
 .forecast-icon {
-    width: 4em; /* Adjust the size as needed */
+    width: 4em;
     height: 4em;
-    margin-bottom: 10px; /* Add some spacing below the icon */
+    margin-bottom: 10px;
 }
-
-
-
-
-
-
-
-
-
 
 /* Responsive Design */
-
-@media screen and (max-width: 800px){
-    .container {
-        position: relative;
-        width: 95%;
-        top: initial;
+@media screen and (min-width: 800px) {
+    .main-container {
+        flex-direction: row; /* Align items in a row on larger screens */
     }
-    
-    .panel{
+
+    .panel {
+        position: absolute;
+        width: 40%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        z-index: 2;
+    }
+
+    .container {
+        width: calc(100% - 40%);
+        margin-right: 40%;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    .main-container {
+        flex-direction: column; /* Stack items in a column on smaller screens */
+    }
+
+    .panel {
         position: relative;
         width: 100%;
+        height: auto; /* Adjust height to fit content */
         top: initial;
+        right: initial;
+        margin-top: 20px; /* Space between the forecast and panel */
     }
+
+    .container {
+        width: 95%;
+    }
+
     #forecastContainer {
-        display: flex;
-        flex-wrap: wrap;
-         /* Adjusts for the total margin offset */
+        margin-top: 20px;
     }
+
     .day-forecast {
-        flex: 1;
-        min-width: calc(100% / 7 - 2px); /* Adjusts for the 1px gap */
-        margin: 0.5px; /* Creates the 1px gap */
-
+        width: calc(100% / 7 - 2px);
+        margin: 0.5px;
     }
-    .day-forecast h3 {
-       padding-right: 5px; 
-        margin: 0;
-        font-size: .6em;
-        height: 2em;
-        
-    }
-    .day-forecast span {
-
-        
-        font-size: .5em;
-        width: auto;
-
-        
-    }
-
-
-    
-
-
-.forecast-icon {
-    width: 2em; /* Adjust the size as needed */
-    height: 2em;
-    margin-bottom: 10px; /* Add some spacing below the icon */
-    align-items: center;
 }
-}    
 
-
-
-@media screen and (max-width: 500px){
-    html{
+@media screen and (max-width: 500px) {
+    html {
         font-size: 12px;
     }
 }
-@media screen and (max-width: 300px){
-    .weather-app{
+
+@media screen and (max-width: 300px) {
+    .weather-app {
         min-height: 40em;
     }
 }
-
